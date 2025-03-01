@@ -17,15 +17,20 @@ public class UserController {
 
     @PostMapping("/register")
     public Result register(String username, String password) {
-        //查询用户
-        User u = userService.findByUsername(username);
-        if (u == null) {
-            //用户不存在，可以注册
-            userService.register(username, password);
-            return Result.success();
-        } else {
-            //用户存在，不可以注册
-            return Result.error("用户名已存在");
-        }
-    }
+        if (username !=null && username.length() >=5 && username.length() <= 16 &&
+                password != null && password.length() >= 5 && password.length() <= 16) {
+            //查询用户
+            User u = userService.findByUsername(username);
+            if (u == null) {
+                //用户不存在，可以注册
+                userService.register(username, password);
+                return Result.success();
+                } else {
+                //用户存在，不可以注册
+                return Result.error("用户名已存在");
+                }
+                }else{
+                    return Result.error("用户名或密码格式不正确");
+                    }
+            }
 }
