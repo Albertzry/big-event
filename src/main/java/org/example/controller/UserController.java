@@ -7,6 +7,7 @@ import org.example.pojo.Result;
 import org.example.utils.JwtUtil;
 import org.example.utils.Md5Util;
 import org.example.utils.ThreadLocalUtil;
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -69,5 +70,11 @@ public class UserController {
     public Result update(@RequestBody @Validated User user){
     userService.update(user);
     return Result.success();
+    }
+
+    @PatchMapping("updateAvatar")
+    public Result updateAvatar(@RequestParam @URL String avatarUrl){
+        userService.updateAvatar(avatarUrl);
+        return Result.success();
     }
 }
