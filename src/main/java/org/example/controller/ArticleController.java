@@ -41,4 +41,10 @@ public class ArticleController {
         articleService.update(article);
         return Result.success();
     }
+
+    @GetMapping("detail")
+    public Result<Article> detail(Integer id){
+        Article article = articleService.detail(id);
+        return Result.success(article);
+    }
 }

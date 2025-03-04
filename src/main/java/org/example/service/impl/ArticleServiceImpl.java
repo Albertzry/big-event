@@ -55,4 +55,9 @@ public class ArticleServiceImpl implements ArticleService {
         article.setUpdateTime(LocalDateTime.now());
         articleMapper.update(article);
     }
+
+    @Override
+    public Article detail(Integer id) {
+        return articleMapper.detial(id);
+    }
 }
