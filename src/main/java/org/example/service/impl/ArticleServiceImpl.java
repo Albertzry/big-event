@@ -60,4 +60,9 @@ public class ArticleServiceImpl implements ArticleService {
     public Article detail(Integer id) {
         return articleMapper.detial(id);
     }
+
+    @Override
+    public void delete(Integer id) {
+        articleMapper.delete(id);
+    }
 }

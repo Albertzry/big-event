@@ -1,9 +1,6 @@
 package org.example.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 import org.example.pojo.Article;
 
 import java.util.List;
@@ -21,4 +18,7 @@ public interface ArticleMapper {
 
     @Select("select * from article where id=#{id}")
     Article detial(Integer id);
+
+    @Delete("delete from article where id=#{id}")
+    void delete(Integer id);
 }

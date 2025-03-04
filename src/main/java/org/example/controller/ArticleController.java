@@ -47,4 +47,10 @@ public class ArticleController {
         Article article = articleService.detail(id);
         return Result.success(article);
     }
+
+    @DeleteMapping
+    public Result delete(Integer id){
+        articleService.delete(id);
+        return Result.success();
+    }
 }
