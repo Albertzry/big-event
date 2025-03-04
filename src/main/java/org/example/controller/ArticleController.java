@@ -19,7 +19,7 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
-    @PutMapping
+    @PostMapping
     public Result add(@RequestBody @Validated Article article){
         articleService.add(article);
         return Result.success();
@@ -34,5 +34,11 @@ public class ArticleController {
     ){
         PageBean<Article> pb = articleService.list(pageNum, pageSize, categoryId, state);
         return Result.success(pb);
+    }
+
+    @PutMapping
+    public Result update(@RequestBody @Validated Article article){
+        articleService.update(article);
+        return Result.success();
     }
 }

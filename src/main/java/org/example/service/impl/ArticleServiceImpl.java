@@ -49,4 +49,10 @@ public class ArticleServiceImpl implements ArticleService {
         pb.setItems(p.getResult());
         return pb;
     }
+
+    @Override
+    public void update(Article article) {
+        article.setUpdateTime(LocalDateTime.now());
+        articleMapper.update(article);
+    }
 }
